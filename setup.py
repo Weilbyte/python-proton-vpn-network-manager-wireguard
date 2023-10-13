@@ -3,22 +3,21 @@
 from setuptools import setup, find_namespace_packages
 
 setup(
-    name="proton-vpn-network-manager-openvpn",
-    version="0.0.4",
-    description="Proton Technologies VPN connector for linux",
-    author="Proton Technologies",
-    author_email="contact@protonmail.com",
-    url="https://github.com/ProtonVPN/pyhon-protonvpn-network-manager-openvpn",
-    packages=find_namespace_packages(include=['proton.vpn.backend.linux.networkmanager.protocol.openvpn']),
+    name="proton-vpn-network-manager-wireguard",
+    version="0.0.1",
+    description="Wireguard protocol for Proton VPN Linux",
+    author="Weilbyte",
+    author_email="me@weilbyte.dev",
+    url="https://github.com/Weilbyte/python-proton-vpn-network-manager-wireguard",
+    packages=find_namespace_packages(include=['proton.vpn.backend.linux.networkmanager.protocol.wireguard']),
     include_package_data=True,
     install_requires=["proton-core", "proton-vpn-network-manager"],
     extras_require={
-        "development": ["wheel", "pytest", "pytest-cov", "flake8", "pylint"]
+        "development": ["wheel", "flake8", "pylint"]
     },
     entry_points={
         "proton_loader_linuxnetworkmanager": [
-            "openvpn-tcp = proton.vpn.backend.linux.networkmanager.protocol.openvpn:OpenVPNTCP",
-            "openvpn-udp = proton.vpn.backend.linux.networkmanager.protocol.openvpn:OpenVPNUDP",
+            "wireguard = proton.vpn.backend.linux.networkmanager.protocol.wireguard:WireGuard"
         ]
     },
     python_requires=">=3.8",
